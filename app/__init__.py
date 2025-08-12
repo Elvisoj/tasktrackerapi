@@ -51,11 +51,13 @@ def create_app():
     from .models.user import User
 
     # Register Blueprint
-    from .routes.auth import auth_bp
+    from app.routes.home import home_bp
+    from app.routes.auth import auth_bp
     from app.routes.project import project_bp
     from app.routes.task import task_bp
     from app.routes.summary import summary_bp
 
+    app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(project_bp)
     app.register_blueprint(task_bp)
